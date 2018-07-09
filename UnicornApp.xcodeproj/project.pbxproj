@@ -54,9 +54,9 @@
 		D27824BE20F3BDC600AC6CEA /* UnicornApp */ = {
 			isa = PBXGroup;
 			children = (
+				D27824C320F3BDC600AC6CEA /* Main.storyboard */,
 				D27824BF20F3BDC600AC6CEA /* AppDelegate.swift */,
 				D27824C120F3BDC600AC6CEA /* ViewController.swift */,
-				D27824C320F3BDC600AC6CEA /* Main.storyboard */,
 				D27824C620F3BDC600AC6CEA /* Assets.xcassets */,
 				D27824C820F3BDC600AC6CEA /* LaunchScreen.storyboard */,
 				D27824CB20F3BDC600AC6CEA /* Info.plist */,
@@ -277,6 +277,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9QQKN39F5V;
 				INFOPLIST_FILE = UnicornApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AlexBraun.UnicornApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -292,6 +293,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9QQKN39F5V;
 				INFOPLIST_FILE = UnicornApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AlexBraun.UnicornApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
