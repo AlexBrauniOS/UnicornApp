@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D27824C020F3BDC600AC6CEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27824BF20F3BDC600AC6CEA /* AppDelegate.swift */; };
-		D27824C220F3BDC600AC6CEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27824C120F3BDC600AC6CEA /* ViewController.swift */; };
+		D27824C220F3BDC600AC6CEA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27824C120F3BDC600AC6CEA /* ProfileViewController.swift */; };
 		D27824C520F3BDC600AC6CEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D27824C320F3BDC600AC6CEA /* Main.storyboard */; };
 		D27824C720F3BDC600AC6CEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D27824C620F3BDC600AC6CEA /* Assets.xcassets */; };
 		D27824CA20F3BDC600AC6CEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D27824C820F3BDC600AC6CEA /* LaunchScreen.storyboard */; };
@@ -22,7 +22,7 @@
 		6753035B4D0515235D0EEAAB /* Pods-UnicornApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnicornApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnicornApp/Pods-UnicornApp.release.xcconfig"; sourceTree = "<group>"; };
 		D27824BC20F3BDC600AC6CEA /* UnicornApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnicornApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D27824BF20F3BDC600AC6CEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D27824C120F3BDC600AC6CEA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D27824C120F3BDC600AC6CEA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D27824C420F3BDC600AC6CEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D27824C620F3BDC600AC6CEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D27824C920F3BDC600AC6CEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 				D27824C320F3BDC600AC6CEA /* Main.storyboard */,
 				D27824BF20F3BDC600AC6CEA /* AppDelegate.swift */,
 				D27824D120F3DE0D00AC6CEA /* RSSParser.swift */,
-				D27824C120F3BDC600AC6CEA /* ViewController.swift */,
+				D27824C120F3BDC600AC6CEA /* ProfileViewController.swift */,
 				D27824C620F3BDC600AC6CEA /* Assets.xcassets */,
 				D27824C820F3BDC600AC6CEA /* LaunchScreen.storyboard */,
 				D27824CB20F3BDC600AC6CEA /* Info.plist */,
@@ -206,7 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D27824C220F3BDC600AC6CEA /* ViewController.swift in Sources */,
+				D27824C220F3BDC600AC6CEA /* ProfileViewController.swift in Sources */,
 				D27824D220F3DE0D00AC6CEA /* RSSParser.swift in Sources */,
 				D27824C020F3BDC600AC6CEA /* AppDelegate.swift in Sources */,
 			);
