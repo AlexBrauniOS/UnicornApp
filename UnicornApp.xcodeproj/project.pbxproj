@@ -12,9 +12,14 @@
 		D27824C520F3BDC600AC6CEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D27824C320F3BDC600AC6CEA /* Main.storyboard */; };
 		D27824C720F3BDC600AC6CEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D27824C620F3BDC600AC6CEA /* Assets.xcassets */; };
 		D27824CA20F3BDC600AC6CEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D27824C820F3BDC600AC6CEA /* LaunchScreen.storyboard */; };
+		D27824D220F3DE0D00AC6CEA /* RSSParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27824D120F3DE0D00AC6CEA /* RSSParser.swift */; };
+		D4387ABA70BE2AF4C51E3E52 /* Pods_UnicornApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 091B8C73D0B73B61227F9A54 /* Pods_UnicornApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		091B8C73D0B73B61227F9A54 /* Pods_UnicornApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnicornApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1ED3D9B0317470C4D4988AC3 /* Pods-UnicornApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnicornApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UnicornApp/Pods-UnicornApp.debug.xcconfig"; sourceTree = "<group>"; };
+		6753035B4D0515235D0EEAAB /* Pods-UnicornApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnicornApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnicornApp/Pods-UnicornApp.release.xcconfig"; sourceTree = "<group>"; };
 		D27824BC20F3BDC600AC6CEA /* UnicornApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnicornApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D27824BF20F3BDC600AC6CEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D27824C120F3BDC600AC6CEA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,7 @@
 		D27824C620F3BDC600AC6CEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D27824C920F3BDC600AC6CEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D27824CB20F3BDC600AC6CEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D27824D120F3DE0D00AC6CEA /* RSSParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4387ABA70BE2AF4C51E3E52 /* Pods_UnicornApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		039868E5ED16DE44277AA999 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				091B8C73D0B73B61227F9A54 /* Pods_UnicornApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B6D51586E648EF16B0520CF2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1ED3D9B0317470C4D4988AC3 /* Pods-UnicornApp.debug.xcconfig */,
+				6753035B4D0515235D0EEAAB /* Pods-UnicornApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D27824B320F3BDC500AC6CEA = {
 			isa = PBXGroup;
 			children = (
 				D27824BE20F3BDC600AC6CEA /* UnicornApp */,
 				D27824BD20F3BDC600AC6CEA /* Products */,
+				B6D51586E648EF16B0520CF2 /* Pods */,
+				039868E5ED16DE44277AA999 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +82,7 @@
 			children = (
 				D27824C320F3BDC600AC6CEA /* Main.storyboard */,
 				D27824BF20F3BDC600AC6CEA /* AppDelegate.swift */,
+				D27824D120F3DE0D00AC6CEA /* RSSParser.swift */,
 				D27824C120F3BDC600AC6CEA /* ViewController.swift */,
 				D27824C620F3BDC600AC6CEA /* Assets.xcassets */,
 				D27824C820F3BDC600AC6CEA /* LaunchScreen.storyboard */,
@@ -71,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D27824CE20F3BDC600AC6CEA /* Build configuration list for PBXNativeTarget "UnicornApp" */;
 			buildPhases = (
+				F2D73F5706F215A46CBF32BD /* [CP] Check Pods Manifest.lock */,
 				D27824B820F3BDC600AC6CEA /* Sources */,
 				D27824B920F3BDC600AC6CEA /* Frameworks */,
 				D27824BA20F3BDC600AC6CEA /* Resources */,
+				A57E2B89E011D33DE5CE0B60 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -131,12 +160,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A57E2B89E011D33DE5CE0B60 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-UnicornApp/Pods-UnicornApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireRSSParser/AlamofireRSSParser.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireRSSParser.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UnicornApp/Pods-UnicornApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2D73F5706F215A46CBF32BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UnicornApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D27824B820F3BDC600AC6CEA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D27824C220F3BDC600AC6CEA /* ViewController.swift in Sources */,
+				D27824D220F3DE0D00AC6CEA /* RSSParser.swift in Sources */,
 				D27824C020F3BDC600AC6CEA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +343,7 @@
 		};
 		D27824CF20F3BDC600AC6CEA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1ED3D9B0317470C4D4988AC3 /* Pods-UnicornApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -288,6 +360,7 @@
 		};
 		D27824D020F3BDC600AC6CEA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6753035B4D0515235D0EEAAB /* Pods-UnicornApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
