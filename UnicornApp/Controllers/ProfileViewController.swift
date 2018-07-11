@@ -22,6 +22,8 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         checkCurrentDateAndTime()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(setPostTitle(_:)), name: .DidSelectPost, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +36,11 @@ class ProfileViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         timer.invalidate()
+    }
+    
+    @objc
+    func setPostTitle(_ notification: Notification) {
+        newsTitleLbl.text = notification.userInfo!["postTitle"] as? String
     }
 
     // create timer for check current date and time

@@ -161,6 +161,7 @@ extension ListOfNewsViewController: UITableViewDelegate, UITableViewDataSource {
         
         let news = displayingNews[indexPath.section][indexPath.row]
         
+        NotificationCenter.default.post(name: .DidSelectPost, object: nil, userInfo: ["postTitle": news.title])
         
         self.performSegue(withIdentifier: "toDetails", sender: news)
         
