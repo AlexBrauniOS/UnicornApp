@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D22780FC20F6979900FAC372 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22780FB20F6979900FAC372 /* NotificationName.swift */; };
 		D27824C020F3BDC600AC6CEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27824BF20F3BDC600AC6CEA /* AppDelegate.swift */; };
 		D27824C220F3BDC600AC6CEA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27824C120F3BDC600AC6CEA /* ProfileViewController.swift */; };
 		D27824C520F3BDC600AC6CEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D27824C320F3BDC600AC6CEA /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		091B8C73D0B73B61227F9A54 /* Pods_UnicornApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnicornApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ED3D9B0317470C4D4988AC3 /* Pods-UnicornApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnicornApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UnicornApp/Pods-UnicornApp.debug.xcconfig"; sourceTree = "<group>"; };
 		6753035B4D0515235D0EEAAB /* Pods-UnicornApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnicornApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnicornApp/Pods-UnicornApp.release.xcconfig"; sourceTree = "<group>"; };
+		D22780FB20F6979900FAC372 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		D27824BC20F3BDC600AC6CEA /* UnicornApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnicornApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D27824BF20F3BDC600AC6CEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D27824C120F3BDC600AC6CEA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +69,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D22780FD20F697A100FAC372 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D22780FB20F6979900FAC372 /* NotificationName.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		D27824B320F3BDC500AC6CEA = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +104,7 @@
 				D2C3BAD320F540AE005AD573 /* Models */,
 				D2C3BAD120F54098005AD573 /* Controllers */,
 				D2C3BAD220F540A6005AD573 /* Cells */,
+				D22780FD20F697A100FAC372 /* Extensions */,
 				D27824C620F3BDC600AC6CEA /* Assets.xcassets */,
 				D27824C820F3BDC600AC6CEA /* LaunchScreen.storyboard */,
 				D27824CB20F3BDC600AC6CEA /* Info.plist */,
@@ -243,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2C3BACC20F537AA005AD573 /* NewsDetailsViewController.swift in Sources */,
+				D22780FC20F6979900FAC372 /* NotificationName.swift in Sources */,
 				D2C3BAD020F54087005AD573 /* NewsTableViewCell.swift in Sources */,
 				D2C3BACA20F530B2005AD573 /* NewsModel.swift in Sources */,
 				D2C3BACE20F53E90005AD573 /* ListOfNewsViewController.swift in Sources */,

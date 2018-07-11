@@ -19,6 +19,11 @@ class NewsDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "Post detail"
+        
+        titleLbl.text = news?.title
+        descriptionTV.text = news?.description
+        authorLbl.text = news?.author
         
     }
 
