@@ -92,9 +92,24 @@ class ListOfNewsViewController: UIViewController {
         }
         
     }
+    
+    func checkAndReloadData() {
+        
+        displayingNews.removeAll()
+        
+        if segmentControl.selectedSegmentIndex == 0 {
+            displayingNews.append(businessNews)
+        } else {
+            displayingNews.append(entertainmentNews)
+            displayingNews.append(environmentNews)
+        }
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
         
     }
+    
+    
     
 
     // MARK: - Navigation
@@ -105,10 +120,29 @@ class ListOfNewsViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+        
+        checkAndReloadData()
+        
+    }
+    
 
 }
 
 extension ListOfNewsViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return displayingNews.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if segmentControl.selectedSegmentIndex == 0 {
+            return "Business news"
+        } else {
+            return section == 0 ? "Entertainment news" : "Environment news"
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return displayingNews[section].count
