@@ -11,6 +11,8 @@ import Alamofire
 import AlamofireRSSParser
 
 class RSSParser {
+    
+    // urls
     enum NewsRubric: String {
         case business = "http://feeds.reuters.com/reuters/businessNews"
         case entertainment = "http://feeds.reuters.com/reuters/entertainment"
@@ -21,7 +23,7 @@ class RSSParser {
         
         var url = ""
         
-        switch rubric {
+        switch rubric { // select ulr's link
         case .business:
             url = NewsRubric.business.rawValue
         case .entertainment:
@@ -32,10 +34,9 @@ class RSSParser {
         
         Alamofire.request(url).responseRSS { (response) in
             if let feed: RSSFeed = response.result.value {
-                let news = feed.items.map({ (item) -> NewsModel in
+                let news = feed.items.map({ (item) -> NewsModel in // mapping rrs model to custom model (NewsModel)
                     let title = item.title ?? "No title"
-                    let description = item.itemDescription?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil) ?? "No Description"
-//                    print("ITEM DESCRIPTION: \(item.itemDescription ?? "LOL")")
+                    let description = item.itemDescription?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil) ?? "No Description" // remove trash from description
                     let author = item.author ?? "Unknown author"
                     
                     print("MY ITEM: \(item)")

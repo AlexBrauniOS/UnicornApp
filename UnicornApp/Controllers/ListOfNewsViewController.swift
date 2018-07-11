@@ -11,23 +11,26 @@ import AlamofireRSSParser
 
 class ListOfNewsViewController: UIViewController {
 
+    // MARK: IBOutlets
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: Variables
     let rssParser = RSSParser()
+    var rssTimer = Timer()
     
-    var displayingNews: [[NewsModel]] = [] {
+    var displayingNews: [[NewsModel]] = [] { // data source array for table view
         didSet {
             tableView.reloadData()
         }
     }
     
+    // arrays for each rubric of news
     var businessNews: [NewsModel] = []
     var entertainmentNews: [NewsModel] = []
     var environmentNews: [NewsModel] = []
     
-    var timer = Timer()
-    
+    // MARK: ViewController's life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,13 +47,14 @@ class ListOfNewsViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        timer.invalidate()
+        rssTimer.invalidate()
     }
     
+    // MARK: Setup news downloader
     func setupRssDownloader() {
         
-        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(downloadNews), userInfo: nil, repeats: true)
-        timer.fire()
+        rssTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(downloadNews), userInfo: nil, repeats: true)
+        rssTimer.fire()
     }
     
     @objc
@@ -65,7 +69,7 @@ class ListOfNewsViewController: UIViewController {
             print("business: \(url)")
             print("////////////////")
             self.businessNews = news
-            self.checkAndReloadData()
+            self.checkAndReloadData() // update UI if Business News selected
             group.leave()
         }
         group.enter()
@@ -85,10 +89,9 @@ class ListOfNewsViewController: UIViewController {
         
         group.notify(queue: .main) {
             print("ALL TASKS ARE DONE")
-            self.checkAndReloadData()
+            self.checkAndReloadData() // update UI if Other News selected
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
-        
     }
     
     func checkAndReloadData() {
@@ -102,14 +105,10 @@ class ListOfNewsViewController: UIViewController {
             displayingNews.append(environmentNews)
         }
         DispatchQueue.main.async {
-            self.tableView.reloadData()
+            self.tableView.reloadData() // update UI in main thread
         }
-        
     }
     
-    
-    
-
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetails" {
@@ -119,15 +118,14 @@ class ListOfNewsViewController: UIViewController {
         }
     }
     
+    // MARK: IBActions
     @IBAction func segmentedControlValueChanged(_ sender: UISegmentedControl) {
-        
         checkAndReloadData()
-        
     }
     
-
 }
 
+// MARK: TableView Delegate and DataSource Extension
 extension ListOfNewsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -165,7 +163,5 @@ extension ListOfNewsViewController: UITableViewDelegate, UITableViewDataSource {
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    
     
 }

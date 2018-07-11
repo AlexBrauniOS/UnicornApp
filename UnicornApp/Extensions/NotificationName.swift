@@ -12,5 +12,4 @@ extension Notification.Name {
     
     static let DidSelectPost = Notification.Name(rawValue: "DidSelectPost")
     
-    
 }

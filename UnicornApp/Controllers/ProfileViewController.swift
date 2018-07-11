@@ -37,13 +37,13 @@ class ProfileViewController: UIViewController {
         
         timer.invalidate()
     }
-    
+    // MARK: Setup post's title label
     @objc
     func setPostTitle(_ notification: Notification) {
         newsTitleLbl.text = notification.userInfo!["postTitle"] as? String
     }
 
-    // create timer for check current date and time
+    // MARK: Create timer for check current date and time
     @objc
     func checkCurrentDateAndTime() {
         
@@ -72,12 +72,10 @@ class ProfileViewController: UIViewController {
     }
     
     func createTimer() {
+        
         timer.invalidate()
-        
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.checkCurrentDateAndTime), userInfo: nil, repeats: true)
-        
     }
-
 
 }
 
