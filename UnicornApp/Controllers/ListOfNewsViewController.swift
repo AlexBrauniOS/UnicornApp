@@ -33,8 +33,6 @@ class ListOfNewsViewController: UIViewController {
 
         tableView.delegate = self
         tableView.dataSource = self
-        
-        title = "News"
     }
     
     override func viewWillAppear(_ animated: Bool) {
