@@ -11,64 +11,40 @@ import Alamofire
 import AlamofireRSSParser
 
 class RSSParser {
+    enum NewsRubric: String {
+        case business = "http://feeds.reuters.com/reuters/businessNews"
+        case entertainment = "http://feeds.reuters.com/reuters/entertainment"
+        case environment = "http://feeds.reuters.com/reuters/environment"
+    }
     
-    static let shared = RSSParser() // singleton
-    
-//    private let url = "http://feeds.reuters.com/reuters/businessNews"
-
-    var callBack: ((RSSFeed)->())?
-    
-    func parseRssUrl(rubric: String) {
+    func getNews(rubric: NewsRubric, result: @escaping (_ news: [NewsModel], _ url: String) -> ()) {
         
         var url = ""
         
         switch rubric {
-        case "business":
-            url = "http://feeds.reuters.com/reuters/businessNews"
-        case "entertainment":
-            url = "http://feeds.reuters.com/reuters/entertainment"
-        case "environment":
-            url = "http://feeds.reuters.com/reuters/environment"
-        default:
-            break
+        case .business:
+            url = NewsRubric.business.rawValue
+        case .entertainment:
+            url = NewsRubric.entertainment.rawValue
+        case .environment:
+            url = NewsRubric.environment.rawValue
         }
         
         Alamofire.request(url).responseRSS { (response) in
             if let feed: RSSFeed = response.result.value {
-//                for item in feed.items {
-//                    print(item)
-//                }
-                self.callBack?(feed)
+                let news = feed.items.map({ (item) -> NewsModel in
+                    let title = item.title ?? "No title"
+                    let description = item.itemDescription?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil) ?? "No Description"
+//                    print("ITEM DESCRIPTION: \(item.itemDescription ?? "LOL")")
+                    let author = item.author ?? "Unknown author"
+                    
+                    print("MY ITEM: \(item)")
+                    
+                    return NewsModel(title: title, description: description, author: author)
+                })
+                result(news, url)
             }
         }
-    }
-    
-    func getArrayWithNews(feeds: RSSFeed?) -> [NewsModel] {
-        
-        var newsArr: [NewsModel] = []
-        
-        for item in (feeds?.items)! {
-            let title = item.title ?? "No title"
-            let description = item.description
-            let author = item.author
-            
-            let news = NewsModel(title: title, description: description, author: author)
-            
-            newsArr.append(news)
-        }
-        
-        
-//        if let feed = feeds {
-//
-//            let title = feed.title ?? "No title"
-//            let description = feed.description
-//
-//            let news = NewsModel(title: title, description: description, author: nil)
-//
-//            newsArr.append(news)
-//        }
-        
-        return newsArr
     }
     
 }

@@ -12,8 +12,8 @@ class NewsModel {
     
     let title: String
     let description: String
-    let author: String?
-    init(title: String, description: String, author: String?) {
+    let author: String
+    init(title: String, description: String, author: String) {
         self.title = title
         self.description = description
         self.author = author

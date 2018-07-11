@@ -14,13 +14,19 @@ class ListOfNewsViewController: UIViewController {
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     
-    let rssParser = RSSParser.shared
+    let rssParser = RSSParser()
     
-    var allNews: [NewsModel] = [] {
+    var displayingNews: [[NewsModel]] = [] {
         didSet {
             tableView.reloadData()
         }
     }
+    
+    var businessNews: [NewsModel] = []
+    var entertainmentNews: [NewsModel] = []
+    var environmentNews: [NewsModel] = []
+    
+    var timer = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,14 +34,64 @@ class ListOfNewsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        rssParser.parseRssUrl(rubric: "business")
-        getNews()
+        title = "News"
     }
     
-    func getNews() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        rssParser.callBack = { [unowned self] news in
-            self.allNews = self.rssParser.getArrayWithNews(feeds: news)
+        setupRssDownloader()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        timer.invalidate()
+    }
+    
+    func setupRssDownloader() {
+        
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(downloadNews), userInfo: nil, repeats: true)
+        timer.fire()
+    }
+    
+    @objc
+    func downloadNews() {
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
+        let group = DispatchGroup()
+        
+        group.enter()
+        rssParser.getNews(rubric: .business) { (news, url) in
+            print("business: \(url)")
+            print("////////////////")
+            self.businessNews = news
+            self.checkAndReloadData()
+            group.leave()
+        }
+        group.enter()
+        rssParser.getNews(rubric: .entertainment) { (news, url) in
+            print("Entertainment: \(url)")
+            print("////////////////")
+            self.entertainmentNews = news
+            group.leave()
+        }
+        group.enter()
+        rssParser.getNews(rubric: .environment) { (news, url) in
+            print("Environment: \(url)")
+            print("////////////////")
+            self.environmentNews = news
+            group.leave()
+        }
+        
+        group.notify(queue: .main) {
+            print("ALL TASKS ARE DONE")
+            self.checkAndReloadData()
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        }
+        
+    }
         }
         
     }
@@ -55,21 +111,22 @@ class ListOfNewsViewController: UIViewController {
 extension ListOfNewsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allNews.count
+        return displayingNews[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell") as! NewsTableViewCell
         
-        cell.titleLbl.text = allNews[indexPath.row].title
+        cell.titleLbl.text = displayingNews[indexPath.section][indexPath.row].title
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let news = allNews[indexPath.row]
+        let news = displayingNews[indexPath.section][indexPath.row]
+        
         
         self.performSegue(withIdentifier: "toDetails", sender: news)
         
