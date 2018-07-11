@@ -14,11 +14,24 @@ class RSSParser {
     
     static let shared = RSSParser() // singleton
     
-    private let url = "http://feeds.reuters.com/reuters/businessNews"
+//    private let url = "http://feeds.reuters.com/reuters/businessNews"
 
     var callBack: ((RSSFeed)->())?
     
-    func parseRssUrl() {
+    func parseRssUrl(rubric: String) {
+        
+        var url = ""
+        
+        switch rubric {
+        case "business":
+            url = "http://feeds.reuters.com/reuters/businessNews"
+        case "entertainment":
+            url = "http://feeds.reuters.com/reuters/entertainment"
+        case "environment":
+            url = "http://feeds.reuters.com/reuters/environment"
+        default:
+            break
+        }
         
         Alamofire.request(url).responseRSS { (response) in
             if let feed: RSSFeed = response.result.value {

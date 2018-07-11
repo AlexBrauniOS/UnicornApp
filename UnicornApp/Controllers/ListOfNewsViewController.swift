@@ -28,7 +28,7 @@ class ListOfNewsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        rssParser.parseRssUrl()
+        rssParser.parseRssUrl(rubric: "business")
         getNews()
     }
     
