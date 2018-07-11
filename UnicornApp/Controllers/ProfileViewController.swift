@@ -21,7 +21,6 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        RSSParser.shared.parseRssUrl()
         checkCurrentDateAndTime()
     }
     

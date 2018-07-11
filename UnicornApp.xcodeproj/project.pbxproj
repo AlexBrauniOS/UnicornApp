@@ -13,6 +13,10 @@
 		D27824C720F3BDC600AC6CEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D27824C620F3BDC600AC6CEA /* Assets.xcassets */; };
 		D27824CA20F3BDC600AC6CEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D27824C820F3BDC600AC6CEA /* LaunchScreen.storyboard */; };
 		D27824D220F3DE0D00AC6CEA /* RSSParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27824D120F3DE0D00AC6CEA /* RSSParser.swift */; };
+		D2C3BACA20F530B2005AD573 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3BAC920F530B2005AD573 /* NewsModel.swift */; };
+		D2C3BACC20F537AA005AD573 /* NewsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3BACB20F537AA005AD573 /* NewsDetailsViewController.swift */; };
+		D2C3BACE20F53E90005AD573 /* ListOfNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3BACD20F53E90005AD573 /* ListOfNewsViewController.swift */; };
+		D2C3BAD020F54087005AD573 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3BACF20F54087005AD573 /* NewsTableViewCell.swift */; };
 		D4387ABA70BE2AF4C51E3E52 /* Pods_UnicornApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 091B8C73D0B73B61227F9A54 /* Pods_UnicornApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +32,10 @@
 		D27824C920F3BDC600AC6CEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D27824CB20F3BDC600AC6CEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D27824D120F3DE0D00AC6CEA /* RSSParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSParser.swift; sourceTree = "<group>"; };
+		D2C3BAC920F530B2005AD573 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		D2C3BACB20F537AA005AD573 /* NewsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsViewController.swift; sourceTree = "<group>"; };
+		D2C3BACD20F53E90005AD573 /* ListOfNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfNewsViewController.swift; sourceTree = "<group>"; };
+		D2C3BACF20F54087005AD573 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,12 +91,40 @@
 				D27824C320F3BDC600AC6CEA /* Main.storyboard */,
 				D27824BF20F3BDC600AC6CEA /* AppDelegate.swift */,
 				D27824D120F3DE0D00AC6CEA /* RSSParser.swift */,
-				D27824C120F3BDC600AC6CEA /* ProfileViewController.swift */,
+				D2C3BAD320F540AE005AD573 /* Models */,
+				D2C3BAD120F54098005AD573 /* Controllers */,
+				D2C3BAD220F540A6005AD573 /* Cells */,
 				D27824C620F3BDC600AC6CEA /* Assets.xcassets */,
 				D27824C820F3BDC600AC6CEA /* LaunchScreen.storyboard */,
 				D27824CB20F3BDC600AC6CEA /* Info.plist */,
 			);
 			path = UnicornApp;
+			sourceTree = "<group>";
+		};
+		D2C3BAD120F54098005AD573 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D27824C120F3BDC600AC6CEA /* ProfileViewController.swift */,
+				D2C3BACD20F53E90005AD573 /* ListOfNewsViewController.swift */,
+				D2C3BACB20F537AA005AD573 /* NewsDetailsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D2C3BAD220F540A6005AD573 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D2C3BACF20F54087005AD573 /* NewsTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		D2C3BAD320F540AE005AD573 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D2C3BAC920F530B2005AD573 /* NewsModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +242,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2C3BACC20F537AA005AD573 /* NewsDetailsViewController.swift in Sources */,
+				D2C3BAD020F54087005AD573 /* NewsTableViewCell.swift in Sources */,
+				D2C3BACA20F530B2005AD573 /* NewsModel.swift in Sources */,
+				D2C3BACE20F53E90005AD573 /* ListOfNewsViewController.swift in Sources */,
 				D27824C220F3BDC600AC6CEA /* ProfileViewController.swift in Sources */,
 				D27824D220F3DE0D00AC6CEA /* RSSParser.swift in Sources */,
 				D27824C020F3BDC600AC6CEA /* AppDelegate.swift in Sources */,
