@@ -39,8 +39,6 @@ class RSSParser {
                     let description = item.itemDescription?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil) ?? "No Description" // remove trash from description
                     let author = item.author ?? "Unknown author"
                     
-                    print("MY ITEM: \(item)")
-                    
                     return NewsModel(title: title, description: description, author: author)
                 })
                 result(news, url)

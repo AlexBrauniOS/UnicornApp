@@ -66,29 +66,22 @@ class ListOfNewsViewController: UIViewController {
         
         group.enter()
         rssParser.getNews(rubric: .business) { (news, url) in
-            print("business: \(url)")
-            print("////////////////")
             self.businessNews = news
             self.checkAndReloadData() // update UI if Business News selected
             group.leave()
         }
         group.enter()
         rssParser.getNews(rubric: .entertainment) { (news, url) in
-            print("Entertainment: \(url)")
-            print("////////////////")
             self.entertainmentNews = news
             group.leave()
         }
         group.enter()
         rssParser.getNews(rubric: .environment) { (news, url) in
-            print("Environment: \(url)")
-            print("////////////////")
             self.environmentNews = news
             group.leave()
         }
         
         group.notify(queue: .main) {
-            print("ALL TASKS ARE DONE")
             self.checkAndReloadData() // update UI if Other News selected
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
